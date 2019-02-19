@@ -40,7 +40,7 @@ std::string getEnemyTypeString(EnemyType enemyType_) {
 	return enemyTypes[enemyType_];
 }
 
-int main() {
+int mainOld() {
 	time_t t;
 	srand((unsigned)time(&t));
 
