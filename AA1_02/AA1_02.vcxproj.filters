@@ -18,5 +18,8 @@
     <ClCompile Include="RandomEnemyGenerator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RandomEnemyGeneratorCorrect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
