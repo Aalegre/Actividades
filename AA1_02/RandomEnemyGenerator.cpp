@@ -17,16 +17,16 @@ struct Enemy {
 	int health;
 
 	Enemy(){}
-	Enemy(EnemyType _type, std::string _name, int _health) {
-		type = _type;
-		name = _name;
-		health = _health;
+	Enemy(EnemyType type_, std::string name_, int health_) {
+		type = type_;
+		name = name_;
+		health = health_;
 	}
 };
 
 //Problem 3
-bool equalEnemies(Enemy enemy1, Enemy enemy2) {
-	return (enemy1.type == enemy2.type && enemy1.name == enemy2.name);
+bool equalEnemies(Enemy enemy1_, Enemy enemy2_) {
+	return (enemy1_.type == enemy2_.type && enemy1_.name == enemy2_.name);
 }
 
 //Problem 4
@@ -36,8 +36,8 @@ Enemy createRandomEnemy() {
 
 
 //Problem 5
-std::string getEnemyTypeString(EnemyType enemyType) {
-	return enemyTypes[enemyType];
+std::string getEnemyTypeString(EnemyType enemyType_) {
+	return enemyTypes[enemyType_];
 }
 
 int main() {
