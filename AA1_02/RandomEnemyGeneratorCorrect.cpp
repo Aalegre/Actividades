@@ -34,7 +34,7 @@ bool operator==(const Enemy &a, const Enemy &b) {
 }
 
 //Problem 4
-Enemy createRandomEnemyConstructor() { //un poco m·s lento
+Enemy createRandomEnemyConstructor() { //un poco m√°s lento
 	return Enemy(
 		EnemyType(rand() % 4), 
 		NAMES[rand() % 10], 
@@ -79,11 +79,11 @@ int main() {
 		i++;
 	}
 
-	std::cout << "List of enemies:\n";
+	std::cout << "    List of enemies:\n\n";
 
 	for (Enemy e : enemies)
 	{
-		std::cout << e.name << " is a " << getEnemyTypeString(e.type) << " with power " << e.health;
+		std::cout << e.name << " is a " << getEnemyTypeString(e.type) << " with power " << e.health << "\n";
 	}
 
 
