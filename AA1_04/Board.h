@@ -37,9 +37,9 @@ struct Board {
 
 		int i = rand() % numRows;
 		int j = rand() % numColumns;
-		if (board[i][j] = STONE) stones--;
-		if (board[i][j] = COIN) coins--;
-		//board[i][j] = PLAYER;
+		//if (board[i][j] = STONE) stones--;
+		//if (board[i][j] = COIN) coins--;
+		////board[i][j] = PLAYER;
 		player.position = { i, j };
 	}
 
