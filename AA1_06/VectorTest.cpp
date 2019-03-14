@@ -33,9 +33,9 @@ void searchAdjacent() {
 }
 
 bool isPalindrome(std::vector<char> &v_) {
-	std::vector<char> v1;
-	std::vector<char> v2;
-	return (v1 == v2);
+	std::vector<char> vTemp(v_);
+	std::reverse(vTemp.begin(), vTemp.end());
+	return (v_ == vTemp);
 }
 
 void main() {
@@ -46,6 +46,9 @@ void main() {
 	std::vector<std::string> v4 = { "Gertrudiz","Pancracia","Anacleto","Hipolito","Eustaquio","Fulgencia" };
 	std::vector<int> v5(v3);
 	std::vector<Persona> v6(3);
+	//std::string v7s = "dabalearrozalazorraelabad";
+	//std::vector<char> v7(v7s.begin(), v7s.end());
+	//bool v7pal = isPalindrome(v7);
 	for (int i = 0; i < v6.size(); i++)
 	{
 		v6[i] = Persona(v4[rand() % v4.size()], rand() % 89999999 + 10000000, Date(rand() % 30 + 1, rand() % 11 + 1, rand() % 100 + 1919));
