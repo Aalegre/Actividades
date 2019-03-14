@@ -24,11 +24,13 @@ void shiftRight(std::vector<int> &v_) {
 	v_.insert(v_.begin(), rand() % 101);
 }
 
-void rotateLeft() {
-
+void rotateLeft(std::vector<int> &v_) {
+	int firstVal = v_[0];
+	v_.erase(v_.begin());
+	v_.push_back(firstVal);
 }
 
-void searchAdjacent() {
+void searchAdjacent(std::vector<int> &v_) {
 
 }
 
