@@ -15,6 +15,7 @@ struct Date {
 };
 
 char letrasDNI[] = { 'T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E' };
+std::vector<std::string> nombres = { "Gertrudiz","Pancracia","Anacleto","Hipolito","Eustaquio","Fulgencia" };
 struct Persona {
 	std::string nombre = "";
 	std::string apellido1 = "";
@@ -27,7 +28,12 @@ struct Persona {
 	char getLetraDNI(unsigned int nDNI_) {
 		return letrasDNI[nDNI_ % 23];
 	}
-	Persona() {};
+	Persona() {
+		nombre = nombres[rand() % nombres.size()];
+		nDNI = rand() % 89999999 + 10000000;
+		letraDNI = getLetraDNI(nDNI);
+		nacimiento = Date(rand() % 30 + 1, rand() % 11 + 1, rand() % 100 + 1919);
+	};
 	Persona(std::string nombre_, unsigned int nDNI_, Date nacimiento_) {
 		nombre = nombre_; nDNI = nDNI_; letraDNI = getLetraDNI(nDNI_); nacimiento = nacimiento_;
 	}
