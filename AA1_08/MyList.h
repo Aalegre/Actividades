@@ -9,33 +9,35 @@ class MyList
 		NodeInt* next;
 		NodeInt() {};
 		NodeInt(int value_) { value = value_; previous = nullptr; next = nullptr; };
-		NodeInt(int value_, NodeInt* previous_, NodeInt* next_) { value = value_; previous = previous_; next = next_; };
+		//NodeInt(int value_, NodeInt* previous_, NodeInt* next_) { value = value_; previous = previous_; next = next_; };
+		NodeInt(NodeInt* previous_, int value_, NodeInt* next_) { previous = previous_; value = value_; next = next_; };
 	};
 	NodeInt* first;
 	NodeInt* last;
+	unsigned int numElements;
 public:
-	MyList(); //OK
-	MyList(MyList const& list_); //OK
+	MyList();
+	MyList(MyList const& list_);
 	~MyList();
 
-	void Push_back(int value_); //OK
-	void Pop_back(); //OK
-	void Push_front(int value_); //OK
-	void Pop_front(); //OK
-	int Front() const; //OK
-	int Back() const; //OK
-	int GetElementPos(int pos_) const; //OK
-	int MaxElement() const const; //OK
-	int MinElement() const; //OK
+	void Push_Back(int value_);
+	void Pop_Back();
+	void Push_Front(int value_);
+	void Pop_Front();
+	int Front() const;
+	int Back() const;
+	int GetElementPos(int pos_) const;
+	int MaxElement() const;
+	int MinElement() const;
 	void Insert(int value_, int pos_);
-	void Delete(int pos_); //OK
+	void Delete(int pos_);
 	void DeleteAll(int value_);
-	void DeleteDuplicates(int value_);
-	void Change(); //OK
-	int GetNumElements() const; //OK
-	bool Empty(); //OK
+	void DeleteDuplicates();
+	void Change();
+	int GetNumElements() const;
+	bool Empty();
 
-	MyList* operator=(const MyList& list_);
-	friend std::ostream& operator<<(std::ostream& os, const MyList& list_); //OK
+	friend bool operator==(const MyList& list1_, const MyList& list2_);
+	friend std::ostream& operator<<(std::ostream& os, const MyList& list_);
 };
 

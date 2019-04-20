@@ -29,6 +29,7 @@ int main() {
 	std::cout << "Sum (505): " << l1.GetElementPos(3) + l1.GetNumElements() << std::endl;;
 
 	l2.Insert(10, l2.GetNumElements() - 1);
+	std::cout << l2;
 	l2.DeleteAll(10);
 	std::cout << "l2(20 30 20 40)  " << l2 << std::endl;;
 
