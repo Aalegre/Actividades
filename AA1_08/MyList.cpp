@@ -51,7 +51,7 @@ void MyList::Push_Back(int value_)
 
 void MyList::Pop_Back()
 {
-	Delete(numElements);
+	Delete(numElements - 1);
 }
 
 void MyList::Push_Front(int value_)
@@ -162,7 +162,7 @@ void MyList::Delete(int pos_)
 			delete first;
 			first = tempFirst;
 		}
-		else if (pos_ != numElements) {
+		else if (pos_ != numElements - 1) {
 			int i = -1;
 			NodeInt* pointer = first;
 			while (i < pos_) {
@@ -197,9 +197,22 @@ void MyList::DeleteAll(int value_)
 			NodeInt* pointer = first;
 			while (pointer != nullptr) {
 				if (pointer->value == value_) {
-					Delete(i);
+					NodeInt* nextPointer = pointer->next;
+					if (i == 0 || i == numElements) {
+						Delete(i);
+					}
+					else {
+						pointer->previous->next = nextPointer;
+						nextPointer->previous = pointer->previous;
+						delete pointer;
+						numElements--;
+					}
+					pointer = nextPointer;
+					i--;
 				}
-				pointer = pointer->next;
+				else {
+					pointer = pointer->next;
+				}
 				i++;
 			}
 		}
@@ -241,6 +254,30 @@ bool MyList::Empty()
 	return numElements == 0;
 }
 
+void MyList::Print()
+{
+	std::cout << " < ";
+	if (numElements == 0)
+	{
+		std::cout << "Empty";
+	}
+	else if (numElements == 1)
+	{
+		std::cout << GetElementPos(0);
+	}
+	else
+	{
+		for (size_t i = 0; i < numElements; i++)
+		{
+			if (i == 0)
+				std::cout << GetElementPos(i);
+			else
+				std::cout << ", " << GetElementPos(i);
+		}
+	}
+	std::cout << " > ";
+}
+
 
 bool operator==(const MyList& list1_, const MyList& list2_)
 {
@@ -261,18 +298,17 @@ bool operator==(const MyList& list1_, const MyList& list2_)
 std::ostream& operator<<(std::ostream& os, const MyList& list_)
 {
 	os << " < ";
-	int numElements = list_.numElements;
-	if (numElements == 0)
+	if (list_.numElements == 0)
 	{
 		os << "Empty";
 	}
-	else if (numElements == 1)
+	else if (list_.numElements == 1)
 	{
 		os << list_.GetElementPos(0);
 	}
 	else
 	{
-		for (size_t i = 0; i < numElements; i++)
+		for (size_t i = 0; i < list_.numElements; i++)
 		{
 			if (i == 0)
 				os << list_.GetElementPos(i);

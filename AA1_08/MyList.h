@@ -37,6 +37,9 @@ public:
 	int GetNumElements() const;
 	bool Empty();
 
+	//Extras
+	void Print();
+
 	friend bool operator==(const MyList& list1_, const MyList& list2_);
 	friend std::ostream& operator<<(std::ostream& os, const MyList& list_);
 };
