@@ -39,6 +39,8 @@ public:
 
 	//Extras
 	void Print();
+	bool Contains(int value_);
+	void Clean();
 
 	friend bool operator==(const MyList& list1_, const MyList& list2_);
 	friend std::ostream& operator<<(std::ostream& os, const MyList& list_);

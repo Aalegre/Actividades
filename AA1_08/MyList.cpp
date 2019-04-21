@@ -31,10 +31,7 @@ MyList::MyList(MyList const& list_)
 
 MyList::~MyList()
 {
-	for (size_t i = 0; i < GetNumElements(); i++)
-	{
-		Delete(0);
-	}
+	Clean();
 }
 
 void MyList::Push_Back(int value_)
@@ -225,6 +222,25 @@ void MyList::DeleteAll(int value_)
 
 void MyList::DeleteDuplicates()
 {
+	if (numElements > 0) {
+		NodeInt* pointer = last;
+		int i = numElements - 1;
+		MyList tempList;
+		while (pointer != nullptr) {
+			if (!tempList.Contains(pointer->value)) {
+				tempList.Push_Back(pointer->value);
+			}
+			i--;
+			pointer = pointer->previous;
+		}
+		Clean();
+		pointer = tempList.first;
+		while (pointer != nullptr) {
+			Push_Front(pointer->value);
+			pointer = pointer->next;
+		}
+		tempList.Clean();
+	}
 }
 
 void MyList::Change()
@@ -276,6 +292,26 @@ void MyList::Print()
 		}
 	}
 	std::cout << " > ";
+}
+
+bool MyList::Contains(int value_)
+{
+	if (numElements > 0) {
+		NodeInt* pointer = first;
+		while (pointer != nullptr) {
+			if (pointer->value == value_)
+				return true;
+			pointer = pointer->next;
+		}
+	}
+	return false;
+}
+
+void MyList::Clean()
+{
+	if (numElements > 0)
+		while (numElements > 0)
+			Delete(0);
 }
 
 
