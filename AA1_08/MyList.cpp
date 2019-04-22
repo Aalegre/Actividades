@@ -279,19 +279,41 @@ void MyList::Print()
 	}
 	else if (numElements == 1)
 	{
-		std::cout << GetElementPos(0);
+		std::cout << first->value;
 	}
 	else
 	{
-		for (size_t i = 0; i < numElements; i++)
-		{
-			if (i == 0)
-				std::cout << GetElementPos(i);
-			else
-				std::cout << ", " << GetElementPos(i);
+		MyList::NodeInt* pointer = first->next;
+		std::cout << first->value;
+		while (pointer != nullptr) {
+			std::cout << ", " << pointer->value;
+			pointer = pointer->next;
 		}
 	}
 	std::cout << " > ";
+}
+
+void MyList::PrintReverse()
+{
+	std::cout << " > ";
+	if (numElements == 0)
+	{
+		std::cout << "Empty";
+	}
+	else if (numElements == 1)
+	{
+		std::cout << first->value;
+	}
+	else
+	{
+		MyList::NodeInt* pointer = last->previous;
+		std::cout << last->value;
+		while (pointer != nullptr) {
+			std::cout << ", " << pointer->value;
+			pointer = pointer->previous;
+		}
+	}
+	std::cout << " < ";
 }
 
 bool MyList::Contains(int value_)
@@ -340,16 +362,15 @@ std::ostream& operator<<(std::ostream& os, const MyList& list_)
 	}
 	else if (list_.numElements == 1)
 	{
-		os << list_.GetElementPos(0);
+		os << list_.first->value;
 	}
 	else
 	{
-		for (size_t i = 0; i < list_.numElements; i++)
-		{
-			if (i == 0)
-				os << list_.GetElementPos(i);
-			else
-				os << ", " << list_.GetElementPos(i);
+		MyList::NodeInt* pointer = list_.first->next;
+		os << list_.first->value;
+		while (pointer != nullptr) {
+			os << ", " << pointer->value;
+			pointer = pointer->next;
 		}
 	}
 	os << " > ";

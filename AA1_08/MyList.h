@@ -39,6 +39,7 @@ public:
 
 	//Extras
 	void Print();
+	void PrintReverse();
 	bool Contains(int value_);
 	void Clean();
 
