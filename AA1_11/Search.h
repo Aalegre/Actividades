@@ -32,7 +32,7 @@ namespace Search {
 	}
 
 
-	int * linearSearchAll(int a[], int length, int value) {
+	int* linearSearchAll(int a[], int length, int value) {
 
 		int coincidences = 0;
 
@@ -53,7 +53,7 @@ namespace Search {
 
 		return end;
 	}
-	
+
 	int binarySearchR(int a[], int length, int value) {
 		int iLimit = 0;
 		int sLimit = length - 1;
@@ -62,8 +62,8 @@ namespace Search {
 		{
 			iMid = (iLimit + sLimit) / 2;
 			if (a[iMid] == value) {
-				if(iMid == 0) return iMid;
-				while (iMid > 0 && a[iMid] == a[iMid - 1])
+				if (iMid == 0) return iMid;
+				while (iMid > 0 && value == a[iMid - 1])
 					iMid--;
 				return iMid;
 			}
@@ -74,8 +74,4 @@ namespace Search {
 		}
 		return -1;
 	}
-		//esta búsqueda debe considerar el caso en que
-		//pueden haber valores repetidos en el array devolviendo,
-		//por lo tanto, la posición de la primera aparición del
-		//valor buscado.
 }

@@ -20,4 +20,12 @@ namespace Utils {
 	int* generate(int length) {
 		return generate(length, 1000);
 	}
+	int* copy(int a[], int length) {
+		int* newArray = new int[length];
+		for (size_t i = 0; i < length; i++)
+		{
+			newArray[i] = a[i];
+		}
+		return newArray;
+	}
 }

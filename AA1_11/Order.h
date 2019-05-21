@@ -34,8 +34,19 @@ namespace Order {
 		for (int i = 1; i < length; i++)
 		{
 			tmp = a[i];
-			for (j = i - 1; j >= 0 && a[j] > tmp; j--)a[j + 1] = a[j];
+			for (j = i - 1; j >= 0 && a[j] > tmp; j--)
+				a[j + 1] = a[j];
+
 			a[j + 1] = tmp;
+		}
+	}
+	void inverse(int a[], int length) {
+		int temp;
+		for (int i = 0; i < length / 2; i++)
+		{
+			temp = a[i];
+			a[i] = a[length - 1 - i];
+			a[length - 1 - i] = temp;
 		}
 	}
 	bool isAscending(int a[], int length) {
