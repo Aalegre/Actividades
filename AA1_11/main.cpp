@@ -8,8 +8,8 @@
 int main() {
 	srand(time(0));
 
-	auto begin = std::chrono::steady_clock::now();
-	auto end = std::chrono::steady_clock::now();
+	std::chrono::time_point<std::chrono::steady_clock> begin;
+	std::chrono::time_point<std::chrono::steady_clock> end;
 
 	int* rand100_o = Utils::generate(100, 10000);
 	int* rand1000_o = Utils::generate(1000, 10000);
